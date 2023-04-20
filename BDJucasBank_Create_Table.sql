@@ -75,3 +75,5 @@ create table Agendamento (
 
 );
 
+create table carequinha
+
