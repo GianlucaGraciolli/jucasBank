@@ -29,7 +29,7 @@ create table Conta(
 	encerramentoconta datetime,
 
 	constraint pk_Conta primary key (idconta),
-	constraint	ck_status_conta check (statusconta in ('Ativa','Inativa','Em Análise','Bloqueada')),
+	constraint	ck_status_conta check (statusconta in ('Ativa','Inativa','Em AnÃ¡lise','Bloqueada')),
 	constraint fk_cliente_conta foreign key (idcliente) references Cliente (idcliente)
 );
 
@@ -76,4 +76,5 @@ create table Agendamento (
 );
 
 create table carequinha
+create table fornecedor
 
