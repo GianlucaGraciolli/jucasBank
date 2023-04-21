@@ -120,6 +120,24 @@ insert into transacao
 values  (3,13,'350','11/03/2023',15),
 		(3,8,'50','10/03/2023',11)
 
+/*11.Buscar nome, contato, cidade e estado de todos os correntistas com contas bloqueadas, em ordem alfabética.*/
+
+select nome, celular, cidade, estado from cliente
+where idcliente = 11 or idcliente = 7
+order by nome asc
+
+/*12.Buscar quantos correntistas o banco possui por cidade.*/
+
+select cidade, count(nome) as 'Quantidade de Correntistas' from cliente
+group by cidade
+
+/*13.Buscar todas as movimentações que ocorreram em determinado mês/ano. O mês e o ano ficam a seu critério*/
+
+select * from transacao
+where datahora > '01/04/2023' and datahora <'30/04/2023'
+
+/*14.Buscar o nome do correntista e a data de criação da conta, exibindo os correntistas mais antigos primeiro. Se você não possui este atributo (dataCriacaoConta), adicione-o.*/
+
 
 
 
