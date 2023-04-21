@@ -68,8 +68,66 @@ values  ('DEBITO'),
 		('TRANSFERÊNCIA');
 
 select * from tipoOperacao
+select * from Cliente
 
 /*5.Agendar uma transferência da conta do Patinhas que possui saldo de 250000.00 para a conta de 650000.50. Agendar para 25DEZ23, valor 100000.00 */
+
+insert into Agendamento
+values (3,17,'100000','25/12/2023',10,'Agendado')
+
+select * from Agendamento
+
+/*6.Atualizar todo o endereço da Minie (logradouro, numero e complemento), mas mantendo a cidade.*/
+
+update cliente
+	set logradouro = 'Rua dos anjos',
+		numerologradouro = '57'
+	where idcliente = 13
+
+/*7.Atualizar o celular do Mickey*/
+
+update cliente
+	set celular = '21997411748'
+	where idCliente = 12
+
+/*8.Inserir 2 saques conforme dados abaixo:
+      Conta do Mickey, valor: 100.00
+      Conta do Huguinho, valor: 250.00*/
+
+select * from tipoOperacao
+select * from Conta
+select * from cliente
+
+insert into transacao
+values  (2,14,'100','19/04/2023',14),
+		(2,11,'250','18/04/23',11)
+
+/*9.Inserir 2 depósitos conforme dados abaixo:
+      Conta da Minie, valor: 1100.00
+      Conta do Donald, valor: 450.00*/
+
+insert into transacao
+values  (1,15,'1100','13/04/2023',15),
+		(1,8,'450','15/04/2023',8)
+
+select * from transacao
+
+/*10.Inserir 2 transferências conforme dados abaixo:
+      Conta da Zezinho para conta da Minie, valor: 350.50
+      Conta do Donald para conta da Huguinho, valor: 50.00*/
+
+insert into transacao
+values  (3,13,'350','11/03/2023',15),
+		(3,8,'50','10/03/2023',11)
+
+
+
+
+
+
+
+	
+
 
 
 
