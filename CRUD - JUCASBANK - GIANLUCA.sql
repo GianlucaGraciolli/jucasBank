@@ -207,6 +207,14 @@ group by Cliente.estado
 select valor, datahora from transacao
 where idtipoOperacao = 1 and idContaDestino = 8
 
+Desafio:
+/*Buscar o nome do cliente, o número da conta (id) e o saldo existente, mostrando as contas com maior saldo primeiro.*/
+
+select cliente.nome, conta.idconta, conta.saldo from Cliente
+inner join Conta
+on cliente.idCliente = conta.idcliente
+order by saldo desc
+
 	
 
 
