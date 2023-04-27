@@ -138,7 +138,76 @@ where datahora > '01/04/2023' and datahora <'30/04/2023'
 
 /*14.Buscar o nome do correntista e a data de criação da conta, exibindo os correntistas mais antigos primeiro. Se você não possui este atributo (dataCriacaoConta), adicione-o.*/
 
+select Cliente.nome as 'nomeCliente', Conta.aberturaconta from Cliente
+inner join Conta
+on Cliente.idCliente = Conta.idcliente
+order by aberturaconta asc
 
+/*15.Buscar todos os correntistas que possuem "z" no nome.*/
+
+select * from Cliente where nome like '%Z%'
+
+/*16.Buscar o total de contas ativas e bloqueadas no JucasBank.*/
+
+select statusconta, count(statusconta) as 'Quantidade de contas' from Conta
+group by statusconta
+
+/*17.Buscar o total de contas ativas e bloqueadas no JucasBank, considerando apenas as contas que possuem mais de R$ 5.000,00*/
+
+select statusconta, count(statusconta) as 'Quantidade de contas' from Conta
+where saldo > 5000.00
+group by statusconta
+
+/*18.Buscar todas as cidades onde o JucasBank possui correntista, sem que as cidades se repitam, e em ordem alfabética.*/
+
+select cidade, count(cidade) as 'Qtd de Clientes' from Cliente 
+group by cidade
+order by cidade asc
+
+/*19.Buscar a média de valores em contas de correntistas do estado de são paulo apenas.*/
+select avg(conta.saldo) as 'Média de Saldo de Contas', Cliente.estado from Cliente
+inner join Conta
+on cliente.idCliente = conta.idcliente
+where Cliente.estado = 'São Paulo'
+group by Cliente.estado
+
+select * from conta
+select * from Cliente
+
+/*20.Buscar o maior valor existente em conta no JucasBank.*/
+
+select max (saldo) 'Conta com mais dinheiro em saldo' from Conta
+
+/*21.Buscar o id da conta e o saldo da conta de todas as contas ativas e que possuam menos de R$1.000,00 mostrando as de menor valor primeiro.*/
+
+select idconta, saldo from Conta
+where statusconta = 'ativa' and saldo < 1000.00
+order by saldo asc
+
+/*22.Buscar todos os tipos de operações possíveis em ordem alfabética.*/
+
+select nomeOperacao from tipoOperacao
+order by nomeOperacao asc
+
+/*23.Buscar todas as contas e respectivos saldos do JucasBank, do maior saldo para o menor.*/
+
+select idconta, saldo from conta
+order by saldo desc
+
+/*24.Buscar a soma de valores que existem em todas as contas que estão no estado de SP.*/
+
+select sum(conta.saldo) as 'Média de Saldo de Contas', Cliente.estado from Cliente
+inner join Conta
+on cliente.idCliente = conta.idcliente
+where Cliente.estado = 'São Paulo'
+group by Cliente.estado
+
+/*25.Buscar todos os depósitos que ocorreram na conta do Donald.*/
+
+select valor, datahora from transacao
+where idtipoOperacao = 1 and idContaDestino = 8
+
+	
 
 
 
